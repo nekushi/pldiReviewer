@@ -1,69 +1,145 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>PDLI Midterm Reviewer</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
-</head>
-<body>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
     <div class="first-page">
-        <div class="center">
-            <i class="fa-solid fa-terminal"></i>
-            <p class="description">This website aims to help you in your PDLI Midterm Examination. Goodluck~~</p>
-        </div>
-        <button class="get-started">Get Started!</button>
+      <div class="center">
+        <i class="fa-solid fa-terminal"></i>
+        <p class="description">
+          This website aims to help you in your PDLI Midterm Examination.
+          Goodluck~~
+        </p>
+      </div>
+      <button class="get-started">Get Started!</button>
     </div>
 
     <div class="second-page">
-        <div class="reminder">
-            <h2>Reminders:</h2>
+      <div class="reminder">
+        <h2>Reminders:</h2>
+        <ul>
+          <li>Based sa reviewer ko lang to</li>
+          <li>Keywords lang ng mga terms ang ginamit ko</li>
+          <li>Let me know if may kulang</li>
+          <li>PascalCase magsagot ng enumarations separated by spaces</li>
+          <li>PascalCase examples: HelloWorld FrozenHotdog ChristmasBalls</li>
+          <li>Wag ka papalipas ng gutom</li>
+          <li>Ingat ka palagi &#10084;&#10084;</li>
+          <li>ILY &#10084;&#10084;</li>
+          <li>goodluck~~</li>
+        </ul>
+      </div>
+      <button class="start">Start!</button>
+    </div>
+
+    <div class="enum-page">
+      <div class="reminder">
+        <h2>Enumarations:</h2>
+        <div class="enums">
+          <div>
+            <h3>CPU scheduling decisions may take place</h3>
             <ul>
-                <li>Based sa reviewer ko lang to</li>
-                <li>Keywords lang ng mga terms ang ginamit ko</li>
-                <li>Let me know if may kulang</li>
-                <li>PascalCase magsagot ng enumarations separated by spaces</li>
-                <li>PascalCase examples: HelloWorld FrozenHotdog ChristmasBalls</li>
-                <li>Wag ka papalipas ng gutom</li>
-                <li>Ingat ka palagi &#10084;&#10084;</li>
-                <li>ILY &#10084;&#10084;</li>
-                <li>goodluck~~</li>
+              <li>running to waiting</li>
+              <li>running to ready</li>
+              <li>waiting to ready</li>
+              <li>terminates</li>
             </ul>
+          </div>
+          <div>
+            <h3>Scheduling Algorithms</h3>
+            <ul>
+              <li>First-Come First-Serve (FCFS) Scheduling</li>
+              <li>Shortest-Job-First (SJF) Scheduling</li>
+              <li>Round Robin (RR)</li>
+              <li>Priority Scheduling</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Scheduling Criteria</h3>
+            <ul>
+              <li>CPU utilization</li>
+              <li>Throughput</li>
+              <li>Turnaround time</li>
+              <li>Waiting time</li>
+              <li>Response time</li>
+            </ul>
+          </div>
+          <div>
+            <h3>2 general approaches to Load Balancing</h3>
+            <ul>
+              <li>Push Migration</li>
+              <li>Pull Migration</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Multiple-Processor Scheduling - Approaches</h3>
+            <ul>
+              <li>Asymmetric Multiprocessing</li>
+              <li>Symmetric Multiprocessing</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Processor Affinity</h3>
+            <ul>
+              <li>Soft affinity</li>
+              <li>Hard affinity</li>
+            </ul>
+          </div>
         </div>
-        <button class="start">Start!</button>
+      </div>
+      <button class="start-quiz">Continue!</button>
     </div>
 
     <div class="quiz-area">
-        <div class="fixed-scoreboard">
-            <p class="correct">Correct: <span>0</span></p>
-            <p class="incorrect">Wrong: <span>0</span></p>
-        </div>
-        <div class="question">
-            <h1>Question:</h1>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque nihil cum consequatur tempore sapiente ea error fugiat quis ex deserunt, autem libero dolorum ipsa nam tempora temporibus adipisci facere. Ab!</p>
-        </div>
-        <div class="answer">
-            <label for="answer">answer: </label>
-            <input type="text" id="answer">
-        </div>
-        <p class="correct-answer">Correct answer: <span class="p-correct-answer"></span></p>
+      <div class="fixed-scoreboard">
+        <p class="correct">Correct: <span>0</span></p>
+        <p class="incorrect">Wrong: <span>0</span></p>
+      </div>
+      <div class="question">
+        <h1>Question:</h1>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque nihil
+          cum consequatur tempore sapiente ea error fugiat quis ex deserunt,
+          autem libero dolorum ipsa nam tempora temporibus adipisci facere. Ab!
+        </p>
+      </div>
+      <div class="answer">
+        <label for="answer">answer: </label>
+        <input type="text" id="answer" />
+      </div>
+      <p class="correct-answer">
+        Correct answer: <span class="p-correct-answer"></span>
+      </p>
 
-        <button class="show-answer">Show Answer!</button>
+      <button class="show-answer">Show Answer!</button>
     </div>
 
     <div class="result-area">
-        <div class="new-scoreboard">
-            <p class="result-correct">Correct: <span>0</span></p>
-            <p class="result-incorrect">Wrong: <span>0</span></p>
-            <h3 class="percentage">Percentage: <span></span></h3>
-            <h3 class="remarks">Remarks: <span></span></h3>
-        </div>
-        <button class="restart">Restart!</button>
+      <div class="new-scoreboard">
+        <p class="result-correct">Correct: <span>0</span></p>
+        <p class="result-incorrect">Wrong: <span>0</span></p>
+        <h3 class="percentage">Percentage: <span></span></h3>
+        <h3 class="remarks">Remarks: <span></span></h3>
+      </div>
+      <button class="restart">Restart!</button>
     </div>
-</body>
-<script src="script.js"></script>
+  </body>
+  <script src="script.js"></script>
 </html>

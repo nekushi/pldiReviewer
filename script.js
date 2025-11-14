@@ -1,397 +1,336 @@
-const divFirstPage = document.querySelector(".first-page")
-const divSecondPage = document.querySelector(".second-page")
-const divQuizArea = document.querySelector(".quiz-area")
-const divResultArea = document.querySelector(".result-area")
+const divFirstPage = document.querySelector(".first-page");
+const divSecondPage = document.querySelector(".second-page");
+const divEnumPage = document.querySelector(".enum-page");
+const divQuizArea = document.querySelector(".quiz-area");
+const divResultArea = document.querySelector(".result-area");
 
-const questionArea = document.querySelector("h1 + p")
-const label = document.querySelector("label")
-const input = document.querySelector("input")
-const span = document.querySelector(".p-correct-answer")
+const questionArea = document.querySelector("h1 + p");
+const label = document.querySelector("label");
+const input = document.querySelector("input");
+const span = document.querySelector(".p-correct-answer");
 // const scoreboard = document.querySelector('.new-scoreboard')
 
-const btnGetStarted = document.querySelector(".get-started")
-const btnStart = document.querySelector(".start")
-const showAns = document.querySelector(".show-answer")
-const restart = document.querySelector(".restart")
+const btnGetStarted = document.querySelector(".get-started");
+const btnStart = document.querySelector(".start");
+const btnStartQuiz = document.querySelector(".start-quiz");
+const showAns = document.querySelector(".show-answer");
+const restart = document.querySelector(".restart");
 
-const correctScore = document.querySelector(".correct > span")
-const incorrectScore = document.querySelector(".incorrect > span")
-const percentage = document.querySelector(".percentage > span")
-const remarks = document.querySelector(".remarks > span")
+const correctScore = document.querySelector(".correct > span");
+const incorrectScore = document.querySelector(".incorrect > span");
+const percentage = document.querySelector(".percentage > span");
+const remarks = document.querySelector(".remarks > span");
 
-const resultCorrectScore = document.querySelector(".result-correct > span")
-const resultIncorrectScore = document.querySelector(".result-incorrect > span")
-
+const resultCorrectScore = document.querySelector(".result-correct > span");
+const resultIncorrectScore = document.querySelector(".result-incorrect > span");
 
 const questions = [
-    {
-        question: "form of structure of expressions",
-        answer: "Syntax",
-    }, 
-    {
-        question: "meaning of expressions",
-        answer: "Semantics",
-    }, 
-    {
-        question: "string of characters",
-        answer: "Sentence",
-    }, 
-    {
-        question: "set of sentences",
-        answer: "Language",
-    }, 
-    {
-        question: `lowest level syntactic unit`,
-        answer: "Lexeme",
-    }, 
-    {
-        question: "category of lexemes",
-        answer: "Token",
-    }, 
-    {
-        question: "By Noam Chomsky; language generators, class of languages",
-        answer: "Context Free Grammar",
-    }, 
-    {
-        question: "1959; by John Backus; to describe Algol 58; (equvalent) to Context Free Grammar",
-        answer: "Backus Normal Form",
-    }, 
-    {
-        question: "to describe another language",
-        answer: "Metalanguage",
-    }, 
-    {
-        question: "represents classes of syntactic structures",
-        answer: "Abstraction",
-    }, 
-    {
-        question: "has left and right hand side; consists of terminal and nonterminal symbols",
-        answer: "Rule",
-    }, 
-    {
-        question: "finite nonempty set of rules",
-        answer: "Grammar",
-    }, 
-    {
-        question: "repeated application of rules",
-        answer: "Derivation",
-    }, 
-    {
-        question: "hierarchical representation of derivation",
-        answer: "Parse Tree",
-    },
-    {
-        question: "in square brackets []",
-        answer: "Optional parts",
-    }, 
-    {
-        question: "in parenthesis (), and separated by vertical bar |",
-        answer: "Alternative parts",
-    }, 
-    {
-        question: "in curly braces {}",
-        answer: "Repetitions",
-    }, 
-    {
-        question: "terminals in circles and non-terminals in rectangles",
-        answer: "Syntax Graph",
-    }, 
-    {
-        question: "process of tracing or constructing a parse tree for input string",
-        answer: "Parsing",
-    }, 
-    {
-        question: "analyze lexemes",
-        answer: "Lexical Analyzer",
-    }, 
-    {
-        question: "no single notation for describing semantics",
-        answer: "Dynamic Semantics",
-    }, 
-    {
-        question: "describe the meaning of a program by executing its statements on a machine",
-        answer: "Operational Semantics",
-    }, 
-    {
-        question: "based on formal logic",
-        answer: "Axiomatic Semantics",
-    }, 
-    {
-        question: "expressions",
-        answer: "Assertions",
-    }, 
-    {
-        question: "assertion before statement",
-        answer: "Precondition",
-    }, 
-    {
-        question: "assertion following/after statement",
-        answer: "Postcondition",
-    }, 
-    {
-        question: "based on recursive function theory",
-        answer: "Denotational Semantics",
-    }, 
-    {
-        question: "anything that vary",
-        answer: "Length",
-    }, 
-    {
-        question: "building block",
-        answer: "Connectors",
-    }, 
-    {
-        question: "affects things to be interpreted by the system",
-        answer: "Case Sensitive",
-    }, 
-    {
-        question: "reserved words, keywords",
-        answer: "Special Words",
-    }, 
-    {
-        question: "storage location; different address;  can be characterized by a collection of properties, or attributes, the most important of which is type, a fundamental concept in programming languages",
-        answer: "Variable",
-    }, 
-    {
-        question: "harmful to readability",
-        answer: "Aliases",
-    }, 
-    {
-        question: "assumption during optimization",
-        answer: "Aliasing",
-    }, 
-    {
-        question: "collection of cells",
-        answer: "Abstract Memory Cell",
-    }, 
-    {
-        question: "variable address",
-        answer: "l-value",
-    }, 
-    {
-        question: "variable value",
-        answer: "r-value",
-    }, 
-    {
-        question: "association, such as between an attribute and an entity, or between an operation and a symbol",
-        answer: "Binding",
-    }, 
-    {
-        question: "time at which binding takes place",
-        answer: "Binding Time",
-    }, 
-    {
-        question: "occurs before run time (explicit or implicit)",
-        answer: "Binding is Static",
-    }, 
-    {
-        question: "occurs during execution",
-        answer: "Binding is Dynamic",
-    }, 
-    {
-        question: "program statement for declaring the types of variables",
-        answer: "Explicit declaration",
-    }, 
-    {
-        question: "default mechanism for specifying types of variables",
-        answer: "Implicit declaration",
-    }, 
-    {
-        question: "to assign types to entities",
-        answer: "Type Inferencing",
-    }, 
-    {
-        question: "getting a cell from available cells",
-        answer: "Allocation",
-    }, 
-    {
-        question: "putting a cell back",
-        answer: "Deallocation",
-    }, 
-    {
-        question: "operands of operator are of compatible types",
-        answer: "Type Checking",
-    }, 
-    {
-        question: "either legal for operator, or allowed  under language rules to be implicitly converted (coercion)",
-        answer: "Compatible Types",
-    }, 
-    {
-        question: "automatic conversion",
-        answer: "Coercion",
-    }, 
-    {
-        question: "operator to and operand of an inappropriate type",
-        answer: "Type Error",
-    }, 
-    {
-        question: "range of statements",
-        answer: "Scope",
-    }, 
-    {
-        question: "determine at compile-time",
-        answer: "Static Scope",
-    }, 
-    {
-        question: "search declarations",
-        answer: "Search Process",
-    }, 
-    {
-        question: "enclosing static scopes",
-        answer: "Static Ancestors",
-    }, 
-    {
-        question: "nearest static ancestor",
-        answer: "Static Parent",
-    }, 
-    {
-        question: "method in creating static scopes",
-        answer: "Blocks",
-    }, 
-    {
-        question: "determined at runtime",
-        answer: "Dynamic Scope",
-    }, 
-    {
-        question: "collection of all names",
-        answer: "Referencing Environments",
-    }, 
-    {
-        question: "variable that is bound to a value",
-        answer: "Named Constants",
-    }, 
-    {
-        question: "binding of variable to a value at the time it is bound to storage",
-        answer: "Variable Initialization",
-    }, 
-    {
-        question: "the time during which it is bound to a particular memory cell",
-        answer: "lifetime or lifetime of a variable",
-    }, 
-    {
-        question: "Who must use language definitions? (3)",
-        answer: "LanguageDesigners Implementors Programmers",
-    }, 
-    {
-        question: "Formal approaches to describing syntax (2)",
-        answer: "Recognizers Generators",
-    }, 
-    {
-        question: "Categories of Static Semantics (2)",
-        answer: "ContextFree NoncontextFree",
-    }, 
-    {
-        question: "Primary Value of Attribute Grammars (2)",
-        answer: "StaticSemanticsSpecification CompilerDesign",
-    }, 
-    {
-        question: "Possible Binding Time (5)",
-        answer: "LanguageDesignTime LanguageImplementationTime CompileTime LoadTime Runtime",
-    }, 
-    {
-        question: "bound to memory cells before execution",
-        answer: "Static",
-    },
-    {
-        question: "storage bindings are created for variables when their declaration statements are elaborated",
-        answer: "Stack Dynamic",
-    },
-    {
-        question: "allocated and deallocated by explicit derivatives",
-        answer: "Explicit Heap – Dynamic",
-    },
-    {
-        question: "allocation and deallocation caused by assignment statements",
-        answer: "Implicit Heap – Dynamic",
-    },
-    {
-        question: "Categories of Variables by Lifetime",
-        answer: "Static StackDynamic ExplicitHeap–Dynamic ImplicitHeap–Dynamic",
-    },
-]
+  {
+    question: "consists of a cycle of CPU execution and I/O wait",
+    answer: "Process execution",
+  },
+  {
+    question: "one of the primary computer resources",
+    answer: "CPU",
+  },
+  {
+    question: "program typically has many short CPU bursts",
+    answer: "I/O-bound",
+  },
+  {
+    question: "program might have a few long CPU bursts",
+    answer: "CPU-bound",
+  },
+  {
+    question: "can be designed as either non-preemptive or preemptive",
+    answer: "Operating-System kernels",
+  },
+  {
+    question:
+      "will wait for a system call to complete or for a process to block",
+    answer: "Non-preemptive kernel",
+  },
+  {
+    question:
+      "requires mechanisms such as mutex locks to prevent race conditions",
+    answer: "Preemptive kernel",
+  },
+  {
+    question:
+      "module gives control of the CPU to the process selected by the scheduler",
+    answer: "Dispatcher",
+  },
+  {
+    question: "invoked during every context switch",
+    answer: "Dispatcher",
+  },
+  {
+    question:
+      "time it takes for the dispatcher to stop one process and resume another running",
+    answer: "Dispatch latency",
+  },
+  {
+    question: "keep the CPU as busy as possible",
+    answer: "CPU utilization",
+  },
+  {
+    question:
+      "numbebr of processes that complete their execution per time unit",
+    answer: "Throughput",
+  },
+  {
+    question: "amount of time to execute a particular process",
+    answer: "Turnaround time",
+  },
+  {
+    question: "amount of time a process has been waiting in the ready queue",
+    answer: "Waiting time",
+  },
+  {
+    question: "amount of time it takes from when a request was submitted",
+    answer: "Response time",
+  },
+  {
+    question: "short process behind long process",
+    answer: "Convoy effect",
+  },
+  {
+    question: "associate with each process the length of its next CPU burst",
+    answer: "Shortest-Job-First (SJF) Scheduling",
+  },
+  {
+    question: "gives minimum average waiting time for a given set of processes",
+    answer: "Shortest-Job-First (SJF) Scheduling",
+  },
+  {
+    question: "will preempt the currently executing process",
+    answer: "preemptive SJF algorithm",
+  },
+  {
+    question:
+      "will allow the currently running process to finish its CPU burst",
+    answer: "non-preemptive SJF algorithm",
+  },
+  {
+    question: "preemptive SJF scheduling is sometimes called:",
+    answer: "Shortest-Remaining-Time-First",
+  },
+  {
+    question:
+      "each process gets a small unit of CPU time (time quantum q) or (time slice), usually 10-100 milliseconds",
+    answer: "Round Robin (RR)",
+  },
+  {
+    question: "interrupts every quantum to schedule next process",
+    answer: "Timer",
+  },
+  {
+    question: "low priority processes may never execute",
+    answer: "Starvation (indefinite blocking)",
+  },
+  {
+    question: "as time progresses increase the priority of the process",
+    answer: "Aging",
+  },
+  {
+    question:
+      "the computer inside the Engine Control Unit in a car has to manage the engine at every moment",
+    answer: "Real Time Processes",
+  },
+  {
+    question: "allows a process to move between the various queues",
+    answer: "Multilevel Feedback Queue Scheduling",
+  },
+  {
+    question:
+      "schedules user-level threads to run an available Lightweight Process (LWP)",
+    answer: "Thread library",
+  },
+  {
+    question:
+      "competition for the CPU takes place among threads belonging to the same process",
+    answer: "Process-Contention Scope (PCS)",
+  },
+  {
+    question:
+      "kernel uses _____, in which competition for the CPU with SCS scheduling takes place among all threads in the system",
+    answer: "System-Contention Scope (SCS)",
+  },
+  {
+    question: "selects the runnable thread with the highest priority to run",
+    answer: "Thread scheduler",
+  },
+  {
+    question: "referred to systems that provided multiple physical processors",
+    answer: "Multiprocessor",
+  },
+  {
+    question: "strategies for organizing the threads eligible to be scheduled",
+    answer: "Symmetric Multiprocessing (SMP)",
+  },
+  {
+    question:
+      "allowed several processes to run in parallel by providing multiple physical processors",
+    answer: "SMP systems",
+  },
+  {
+    question:
+      "to have all scheduling decisions, I/O processing, and other system activities handled by a single processor",
+    answer: "Asymmetric Multiprocessing",
+  },
+  {
+    question: "multithreaded Multicore System also called:",
+    answer: "Chip multithreading (CMT)",
+  },
+  {
+    question: "assigns each core multiple hardware threads",
+    answer: "Chip-MultiThreading (CMT)",
+  },
+  {
+    question: "Chip-MultiThreading (CMT) also known as:",
+    answer: "Simultaneous Multithreading or SMT",
+  },
+  {
+    question: "Intel refers to CMT as:",
+    answer: "Hyper-Threading",
+  },
+  {
+    question: "attempts to keep workload evenly distributed",
+    answer: "Load balancing",
+  },
+  {
+    question: "two general approaches to load balancing",
+    answer: "Push migration and Pull migration",
+  },
+  {
+    question: "periodic task checks load on each processor",
+    answer: "Push migration",
+  },
+  {
+    question: "idle processors pulls waiting task from busy processor",
+    answer: "Pull migration",
+  },
+  {
+    question:
+      "the operating system attempts to keep a thread running on the same processor",
+    answer: "Soft affinity",
+  },
+  {
+    question: "allows a process to specify a set of processors it may run on",
+    answer: "Hard affinity",
+  },
+  {
+    question:
+      "two physical processor chips each with its own CPU and local memory",
+    answer: "Non-Uniform Memory Access (NUMA)",
+  },
+  {
+    question: "to get a accurate evaluation of scheduling algorithms",
+    answer: "Simulations",
+  },
+  {
+    question:
+      "the most common method uses a _____ that is programmed to generate ",
+    answer: "random-number generator",
+  },
+];
 
-let corrects = 0
-let incorrects = 0
+let corrects = 0;
+let incorrects = 0;
 let rngQuestion;
 const rngQuestionLength = questions.length;
 
-function showAndHideDivs(showDiv, hideDiv, type) {
-    showDiv.style.display = type
-    hideDiv.style.display = "none"
-}
-
 function generateQuestion() {
-    rngQuestion = Math.floor(Math.random() * questions.length);
-    questionArea.textContent = `${questions[rngQuestion].question}`;
+  rngQuestion = Math.floor(Math.random() * questions.length);
+  questionArea.textContent = `${questions[rngQuestion].question}`;
 }
 
 function incrementCorrect() {
-    correctScore.textContent = ++corrects;
-    resultCorrectScore.textContent = corrects
+  correctScore.textContent = ++corrects;
+  resultCorrectScore.textContent = corrects;
 }
 
 function incrementIncorrect() {
-    incorrectScore.textContent = ++incorrects;
-    resultIncorrectScore.textContent = incorrects
+  incorrectScore.textContent = ++incorrects;
+  resultIncorrectScore.textContent = incorrects;
 }
 
 function displayAnswer() {
-    span.textContent = questions[rngQuestion].answer
+  span.textContent = questions[rngQuestion].answer;
 }
 
 function resetInput() {
-    input.style.color = "#ffffff";
-    input.value = "";
-    span.textContent = "";
+  input.style.color = "#ffffff";
+  input.value = "";
+  span.textContent = "";
 }
 
 function calculateAndDisplayResult(right, wrong) {
-    percentage.textContent = `${Math.round((right / (right + wrong)) * 100)}%`;
-    remarks.textContent = percentage.textContent >= 80 ? "80% or above, nice." : "review lang GLGLGL!";
+  percentage.textContent = `${Math.round((right / (right + wrong)) * 100)}%`;
+  remarks.textContent =
+    percentage.textContent >= 80
+      ? "80% or above, nice."
+      : "review lang GLGLGL!";
 }
 
-btnGetStarted.onclick = function() {
-    showAndHideDivs(divSecondPage, divFirstPage, "block")
+function showAndHideDivs(showDiv, hideDiv, type) {
+  showDiv.style.display = type;
+  hideDiv.style.display = "none";
 }
 
-btnStart.onclick = function() {
-    showAndHideDivs(divQuizArea, divSecondPage, "flex")
-    generateQuestion()
-}
+btnGetStarted.onclick = function () {
+  showAndHideDivs(divSecondPage, divFirstPage, "block");
+};
 
-showAns.onclick = function() {
-    if (showAns.textContent === "Show Answer!") {
-        let ans = input.value.toLowerCase().trim();
-        if (ans === "") {
-            incrementIncorrect()
-        } else if (ans === questions[rngQuestion].answer.toLowerCase() || questions[rngQuestion].answer.toLowerCase().match(ans)) {
-            input.style.color = "#66ff66";
-            incrementCorrect()
-        } else if (ans !== questions[rngQuestion].answer.toLowerCase()) {
-            input.style.color = "#ff0000";
-            incrementIncorrect()
-        }
-        displayAnswer()
-        showAns.textContent = "Next!";
+btnStart.onclick = function () {
+  showAndHideDivs(divEnumPage, divSecondPage, "block");
+};
 
-        questions.splice(rngQuestion, 1);
-    } else if (showAns.textContent === "Next!") {
-        resetInput()
-        generateQuestion()
+btnStartQuiz.onclick = function () {
+  showAndHideDivs(divQuizArea, divEnumPage, "flex");
+  generateQuestion();
+};
 
-        showAns.textContent = "Show Answer!";
-    } else if (showAns.textContent === "Show Result!") {
-        showAndHideDivs(divResultArea, divQuizArea, "flex")
-        calculateAndDisplayResult(corrects, incorrects)
+showAns.onclick = function () {
+  if (showAns.textContent === "Show Answer!") {
+    let ans = input.value.toLowerCase().trim();
+    if (ans === "") {
+      incrementIncorrect();
+    } else if (
+      ans === questions[rngQuestion].answer.toLowerCase() ||
+      questions[rngQuestion].answer.toLowerCase().match(ans)
+    ) {
+      input.style.color = "#66ff66";
+      incrementCorrect();
+    } else if (ans !== questions[rngQuestion].answer.toLowerCase()) {
+      input.style.color = "#ff0000";
+      incrementIncorrect();
     }
+    displayAnswer();
+    showAns.textContent = "Next!";
 
-    if (parseInt(correctScore.textContent) + parseInt(incorrectScore.textContent) === rngQuestionLength) {
-        showAns.textContent = "Show Result!";
-    }
-}
+    questions.splice(rngQuestion, 1);
+  } else if (showAns.textContent === "Next!") {
+    resetInput();
+    generateQuestion();
 
-restart.onclick = function() {
-    location.reload();
-}
+    showAns.textContent = "Show Answer!";
+  } else if (showAns.textContent === "Show Result!") {
+    showAndHideDivs(divResultArea, divQuizArea, "flex");
+    calculateAndDisplayResult(corrects, incorrects);
+  }
+
+  if (
+    parseInt(correctScore.textContent) +
+      parseInt(incorrectScore.textContent) ===
+    rngQuestionLength
+  ) {
+    showAns.textContent = "Show Result!";
+  }
+};
+
+restart.onclick = function () {
+  location.reload();
+};
 
 // console.log(questions.length);

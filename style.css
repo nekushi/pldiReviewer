@@ -81,16 +81,19 @@ button:active {
   display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
+  gap: 3rem;
   max-height: 28rem;
   overflow: auto;
   scrollbar-width: none;
+  /* border: 1px solid white; */
 }
 h2#enum {
   margin-bottom: -1.5rem;
+  text-wrap: balance;
 }
 .enums > * {
   text-align: left;
-  width: 100%;
+  /* width: 100%; */
 }
 .reminder {
   margin-inline: 4rem;
@@ -197,5 +200,8 @@ input {
   }
   .new-scoreboard > p {
     font-size: 2rem;
+  }
+  .enums > * {
+    width: 100%;
   }
 }

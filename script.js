@@ -35,20 +35,20 @@ const questions = [
   },
   {
     question: "program typically has many short CPU bursts",
-    answer: "I/O-bound",
+    answer: "I/O bound",
   },
   {
     question: "program might have a few long CPU bursts",
-    answer: "CPU-bound",
+    answer: "CPU bound",
   },
   {
     question: "can be designed as either non-preemptive or preemptive",
-    answer: "Operating-System kernels",
+    answer: "Operating System kernels",
   },
   {
     question:
       "will wait for a system call to complete or for a process to block",
-    answer: "Non-preemptive kernel",
+    answer: "Non preemptive kernel",
   },
   {
     question:
@@ -96,11 +96,11 @@ const questions = [
   },
   {
     question: "associate with each process the length of its next CPU burst",
-    answer: "Shortest-Job-First (SJF) Scheduling",
+    answer: "Shortest Job First (SJF) Scheduling",
   },
   {
     question: "gives minimum average waiting time for a given set of processes",
-    answer: "Shortest-Job-First (SJF) Scheduling",
+    answer: "Shortest Job First (SJF) Scheduling",
   },
   {
     question: "will preempt the currently executing process",
@@ -109,11 +109,11 @@ const questions = [
   {
     question:
       "will allow the currently running process to finish its CPU burst",
-    answer: "non-preemptive SJF algorithm",
+    answer: "non preemptive SJF algorithm",
   },
   {
     question: "preemptive SJF scheduling is sometimes called:",
-    answer: "Shortest-Remaining-Time-First",
+    answer: "Shortest Remaining Time First",
   },
   {
     question:
@@ -148,13 +148,13 @@ const questions = [
   },
   {
     question:
-      "competition for the CPU takes place among threads belonging to the same process",
-    answer: "Process-Contention Scope (PCS)",
+      "in which competition for the CPU takes place among threads belonging to the same process",
+    answer: "Process Contention Scope (PCS)",
   },
   {
     question:
       "kernel uses _____, in which competition for the CPU with SCS scheduling takes place among all threads in the system",
-    answer: "System-Contention Scope (SCS)",
+    answer: "System Contention Scope (SCS)",
   },
   {
     question: "selects the runnable thread with the highest priority to run",
@@ -184,7 +184,7 @@ const questions = [
   },
   {
     question: "assigns each core multiple hardware threads",
-    answer: "Chip-MultiThreading (CMT)",
+    answer: "Chip multithreading (CMT)",
   },
   {
     question: "Chip-MultiThreading (CMT) also known as:",
@@ -192,15 +192,11 @@ const questions = [
   },
   {
     question: "Intel refers to CMT as:",
-    answer: "Hyper-Threading",
+    answer: "Hyper threading",
   },
   {
     question: "attempts to keep workload evenly distributed",
     answer: "Load balancing",
-  },
-  {
-    question: "two general approaches to load balancing",
-    answer: "Push migration and Pull migration",
   },
   {
     question: "periodic task checks load on each processor",
@@ -222,7 +218,7 @@ const questions = [
   {
     question:
       "two physical processor chips each with its own CPU and local memory",
-    answer: "Non-Uniform Memory Access (NUMA)",
+    answer: "Non Uniform Memory Access (NUMA)",
   },
   {
     question: "to get a accurate evaluation of scheduling algorithms",
@@ -231,7 +227,243 @@ const questions = [
   {
     question:
       "the most common method uses a _____ that is programmed to generate ",
-    answer: "random-number generator",
+    answer: "Random number generator",
+  },
+  {
+    question:
+      "critical real-time tasks have the highest priority, but no guarantee as to when tasks will be scheduled",
+    answer: "Soft realtime systems",
+  },
+  {
+    question: "task must be serviced by its deadline",
+    answer: "Hard realtime systems",
+  },
+  {
+    question:
+      "the amount of time that elapses from when an event occurs to when it is serviced",
+    answer: "Event latency",
+  },
+  {
+    question:
+      "time from arrival of interrupt to start of routine that services interrupt",
+    answer: "Interrupt latency",
+  },
+  {
+    question:
+      "time for schedule to take current process off CPU and switch to another",
+    answer: "Dispatch latency",
+  },
+  {
+    question: "priority is assigned based on the inverse of its period",
+    answer: "Rate Montonic Scheduling",
+  },
+  {
+    question: "priorities are assigned according to deadlines",
+    answer: "Earliest Deadline First Scheduling",
+  },
+  {
+    question: "interval of time during which task should run at least once",
+    answer: "Target latency",
+  },
+  {
+    question: "set of CPU cores that can be balanced against one another",
+    answer: "Scheduling domain",
+  },
+  {
+    question:
+      "scheduler converts class-specific priorities into a per-thread global priority",
+    answer: "Solaris Scheduling",
+  },
+  {
+    question: "for each algorithm, calculate minimum average waiting time",
+    answer: "Deterministic evaluation",
+  },
+  {
+    question:
+      "describes the arrival of processes, and CPU and I/O bursts probabilistically",
+    answer: "Queueing Models",
+  },
+  // END of Chapter 5
+  {
+    question: "basic unit of CPU utilization",
+    answer: "Thread",
+  },
+  {
+    question: "has a single thread of control",
+    answer: "process",
+  },
+  {
+    question: "is heavy-weight",
+    answer: "Process creation",
+  },
+  {
+    question: "is light-weight",
+    answer: "Thread creation ",
+  },
+  {
+    question:
+      "may allow continued execution if part of process is blocked, especially important for user interfaces",
+    answer: "Responsiveness",
+  },
+  {
+    question:
+      "can share resources only through techniques such as shared memory and message passing.",
+    answer: "Processes",
+  },
+  {
+    question:
+      "share resources of process, easier than shared memory or message passing used between processes",
+    answer: "Threads",
+  },
+  {
+    question:
+      "share the memory and the resources of the process to which they belong by default",
+    answer: "Threads",
+  },
+  {
+    question: "refers to a single CPU with multiple execution units",
+    answer: "Multicore",
+  },
+  {
+    question: "refers to a system that has two or more CPUs",
+    answer: "Multiprocessor",
+  },
+  {
+    question: "find areas that can be divided into separate, concurrent tasks",
+    answer: "Dividing activities",
+  },
+  {
+    question: "tasks perform equal work of equal value",
+    answer: "Balance",
+  },
+  {
+    question:
+      "the data accessed and manipulated by the tasks must be divided to run on separate cores",
+    answer: "Data splitting",
+  },
+  {
+    question:
+      "programmers must ensure that the execution of the tasks is synchronized to accommodate the data dependency",
+    answer: "Data dependency",
+  },
+  {
+    question: "different execution paths are possible",
+    answer: "Testing and debugging",
+  },
+  {
+    question: "implies a system can perform more than one task simultaneously",
+    answer: "Parallelism",
+  },
+  {
+    question: "supports more than one task making progress",
+    answer: "Concurrency",
+  },
+  {
+    question:
+      "designed to provide the illusion of parallelism by rapidly switching between processes",
+    answer: "CPU schedulers",
+  },
+  {
+    question: "distributes subsets of the same data across multiple cores",
+    answer: "Data parallelism",
+  },
+  {
+    question:
+      "distributing threads across cores, each thread performing unique operation",
+    answer: "Task parallelism",
+  },
+  {
+    question: "involves the distribution of data across multiple cores",
+    answer: "Data parallelism",
+  },
+  {
+    question: "involves the distribution of tasks across multiple cores",
+    answer: "Task parallelism",
+  },
+  {
+    question:
+      "identifies performance gains from adding additional cores to an application that has both serial and parallel components",
+    answer: "Amdahl's Law",
+  },
+  {
+    question: "management done by user-level threads library",
+    answer: "User threads",
+  },
+  {
+    question: "supported/managed by the Kernel",
+    answer: "Kernel threads",
+  },
+  {
+    question: "allows a user thread to be bound to kernel thread",
+    answer: "Two Level Model",
+  },
+  {
+    question: "provides programmer with API for creating and managing threads",
+    answer: "Thread library",
+  },
+  {
+    question:
+      "may be provided as either a user-level or a kernel-level library",
+    answer: "POSIX Pthreads",
+  },
+  {
+    question: "a kernel-level library available on Windows systems",
+    answer: "Windows Threads",
+  },
+  {
+    question: "managed by JVM, often JVM is running on top of a host OS",
+    answer: "Java Threads",
+  },
+  {
+    question: "create a number of threads in a pool",
+    answer: "Thread pools",
+  },
+  {
+    question:
+      "software interrupts sent to a program to indicate that an important event has occurred",
+    answer: "Signals",
+  },
+  {
+    question: "used to process signals",
+    answer: "Signal handler",
+  },
+  {
+    question: "Every signal has _____ that kernel runs when handling signal",
+    answer: "Default handler",
+  },
+  {
+    question: "terminating a thread before it has finished",
+    answer: "Thread cancellation",
+  },
+  {
+    question: "thread to be canceled",
+    answer: "Target thread",
+  },
+  {
+    question: "allows each thread to have its own copy of data",
+    answer: "Thread Local Storage (TLS)",
+  },
+  {
+    question: "provide upcalls",
+    answer: "Scheduler activation",
+  },
+  {
+    question:
+      "communication mechanism from the kernel to the upcall handler in the thread library",
+    answer: "Upcalls",
+  },
+  {
+    question: "primary API for Windows applications",
+    answer: "Windows API",
+  },
+  {
+    question:
+      "blocks removed in FIFO order, queue is per process, called main queue",
+    answer: "Serial",
+  },
+  {
+    question: "removed in FIFO order but several may be removed at a time",
+    answer: "Concurrent",
   },
 ];
 

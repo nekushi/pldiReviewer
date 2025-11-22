@@ -25,6 +25,7 @@ const resultCorrectScore = document.querySelector(".result-correct > span");
 const resultIncorrectScore = document.querySelector(".result-incorrect > span");
 
 const questions = [
+  /*
   {
     question: "consists of a cycle of CPU execution and I/O wait",
     answer: "Process execution",
@@ -282,7 +283,7 @@ const questions = [
     question:
       "describes the arrival of processes, and CPU and I/O bursts probabilistically",
     answer: "Queueing Models",
-  },
+  }, */
   // END of Chapter 5
   {
     question: "basic unit of CPU utilization",
